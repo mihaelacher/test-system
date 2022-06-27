@@ -9,7 +9,6 @@ const AnswerForm = ({ question, onChange }) => {
     if (question.questionTypeId === 1) {
       setAnswerInputs([]);
     }
-
     if (question.answer) {
       setAnswerInputs(
         question.answer.map(function (el, index) {
