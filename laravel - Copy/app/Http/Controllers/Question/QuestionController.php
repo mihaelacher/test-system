@@ -144,6 +144,15 @@ class QuestionController extends BaseController
         return response()->json($data, 200);
     }
 
+    public function deleteQuestion()
+    {
+        $id = request()->id;
+        QuestionAnswer::where('id', '=', $id)->delete();
+        Question::where('id', '=', $id)->delete();
+
+        return response()->json('', 200);
+    }
+
     public function getQuestionAnswers()
     {
         $result = QuestionAnswer::where('question_id', request()->id)

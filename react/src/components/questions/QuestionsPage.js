@@ -22,14 +22,14 @@ class QuestionsPage extends React.Component {
     }
   }
 
-  /* handleDeleteCourse = async (course) => {
+  handleDeleteQuestion = async (question) => {
     toast.success("Question deleted");
     try {
-      await this.props.actions.deleteCourse(course);
+      await this.props.actions.deleteQuestion(question);
     } catch (error) {
       toast.error("Delete failed. " + error.message, { autoClose: false });
     }
-  }; */
+  };
 
   render() {
     return (
@@ -45,7 +45,7 @@ class QuestionsPage extends React.Component {
         </button>
 
         <QuestionList
-          /*    onDeleteClick={this.handleDeleteCourse} */
+          onDeleteClick={this.handleDeleteQuestion}
           questions={this.props.questions}
         />
       </>
@@ -69,6 +69,10 @@ function mapDispatchToProps(dispatch) {
     actions: {
       loadQuestions: bindActionCreators(
         questionActions.loadQuestions,
+        dispatch
+      ),
+      deleteQuestion: bindActionCreators(
+        questionActions.deleteQuestion,
         dispatch
       ),
     },

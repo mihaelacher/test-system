@@ -8,6 +8,7 @@ const AnswerInput = ({
   value,
   isChecked,
   onChange,
+  onDelete,
   error,
 }) => {
   let wrapperClass = "form-group col-md-12";
@@ -18,7 +19,7 @@ const AnswerInput = ({
 
   return (
     <>
-      <div className={wrapperClass} key={counter}>
+      <div className={wrapperClass} key={counter} id={counter}>
         <input
           data-key={counter}
           type={question.questionTypeId == 2 ? "radio" : "checkbox"} // TODO: currently not working, state not passed to child component, no solution for now
@@ -37,6 +38,15 @@ const AnswerInput = ({
             onChange={onChange}
           />
         </div>
+        <button
+          className="mt-5 btn-danger"
+          disabled={counter < 2}
+          type="button"
+          onClick={onDelete}
+          data-key={counter}
+        >
+          -
+        </button>
       </div>
     </>
   );

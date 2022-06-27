@@ -18,9 +18,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-    Route::get('/question', 'Question\QuestionController@getQuestions');
-        Route::post('/question', 'Question\QuestionController@saveQuestion');
-            Route::put('/question/{id}', 'Question\QuestionController@updateQuestion');
-    Route::get('/questionType', 'Question\QuestionController@getQuestionTypes');
+Route::get('/question', 'Question\QuestionController@getQuestions');
+Route::post('/question', 'Question\QuestionController@saveQuestion');
+Route::put('/question/{id}', 'Question\QuestionController@updateQuestion');
+Route::delete('/question/{id}', 'Question\QuestionController@deleteQuestion');
+Route::get('/questionType', 'Question\QuestionController@getQuestionTypes');
 
-    Route::get('/questionAnswers/{id}', 'Question\QuestionController@getQuestionAnswers');
+Route::get('/questionAnswers/{id}', 'Question\QuestionController@getQuestionAnswers');

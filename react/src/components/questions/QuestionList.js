@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const QuestionList = ({ questions }) => (
+const QuestionList = ({ questions, onDeleteClick }) => (
   <div className="table-responsive">
     <table className="table table-striped table-hover table-bordered">
       <thead>
@@ -25,7 +25,12 @@ const QuestionList = ({ questions }) => (
               <td>{question.points}</td>
               <td>{question.questionType}</td>
               <td>
-                <button className="btn btn-outline-danger">Delete</button>
+                <button
+                  className="btn btn-outline-danger"
+                  onClick={() => onDeleteClick(question)}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           );
@@ -37,6 +42,7 @@ const QuestionList = ({ questions }) => (
 
 QuestionList.propTypes = {
   questions: PropTypes.array.isRequired,
+  onDeleteClick: PropTypes.func.isRequired,
 };
 
 export default QuestionList;

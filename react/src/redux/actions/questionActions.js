@@ -36,11 +36,11 @@ export function saveQuestion(question) {
   };
 }
 
-export function deleteCourse(course) {
+export function deleteQuestion(question) {
   return function (dispatch) {
     // Doing optimistic delete, so not dispatching begin/end api call
     // actions, or apiCallError action since we're not showing the loading status for this.
-    dispatch(deleteQuestionOptimistic(course));
-    return questionApi.deleteQuestion(course.id);
+    dispatch(deleteQuestionOptimistic(question));
+    return questionApi.deleteQuestion(question.id);
   };
 }

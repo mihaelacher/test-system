@@ -25,6 +25,7 @@ const AnswerForm = ({ question, onChange }) => {
               counter={index}
               value={el}
               isChecked={isCorrect}
+              onDelete={handleDelete}
             />
           );
         }, [])
@@ -46,6 +47,11 @@ const AnswerForm = ({ question, onChange }) => {
         />
       )
     );
+  }
+
+  function handleDelete(event) {
+    event.preventDefault();
+    // TODO: handle answer delete
   }
 
   return (
