@@ -9,17 +9,20 @@ const TextInput = ({
   placeholder,
   value,
   error,
+  className,
+  dataAttr,
 }) => {
-  let wrapperClass = "form-group";
+  let wrapperClass = className || "form-group";
   if (error && error.length > 0) {
     wrapperClass += " " + "has-error";
   }
 
   return (
     <div className={wrapperClass}>
-      <label htmlFor={name}>{label}</label>
+      {label && <label htmlFor={name}>{label}</label>}
       <div className="field">
         <input
+          data-key={dataAttr}
           type={type}
           name={name}
           className="form-control"
@@ -35,12 +38,14 @@ const TextInput = ({
 
 TextInput.propTypes = {
   name: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   type: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
   value: PropTypes.string,
   error: PropTypes.string,
+  className: PropTypes.string,
+  dataAttr: PropTypes.number,
 };
 
 export default TextInput;

@@ -39,11 +39,27 @@ function ManageQuestionPage({
   }, [props.question]);
 
   function handleChange(event) {
-    const { name, value } = event.target;
-    setQuestion((prevQuestion) => ({
-      ...prevQuestion,
-      [name]: name === "questionTypeId" ? parseInt(value, 10) : value,
-    }));
+    let { name, value } = event.target;
+    setQuestion((prevQuestion) => {
+      if (name === "questionTypeId") {
+        value = parseInt(value);
+      }
+
+      if (name === "answer" || name === "isCorrect") {
+        let prevAnswers = [];
+        if (prevQuestion[name]) {
+          prevAnswers = prevQuestion[name];
+        }
+
+        prevAnswers[event.target.getAttribute("data-key")] = value;
+        value = prevAnswers;
+      }
+
+      return {
+        ...prevQuestion,
+        [name]: value,
+      };
+    });
   }
 
   /* function formIsValid() {

@@ -1,29 +1,53 @@
 import React from "react";
 import PropTypes from "prop-types";
+import TextInput from "../common/TextInput";
 
-const AnswerInput = ({ questionType, onChange, error }) => {
+const AnswerInput = ({
+  question,
+  counter,
+  value,
+  isChecked,
+  onChange,
+  error,
+}) => {
   let wrapperClass = "form-group col-md-12";
   if (error && error.length > 0) {
     wrapperClass += " " + "has-error";
   }
+  // TODO: create style object
 
   return (
-    <div className={wrapperClass}>
-      <input type={questionType} name="answer" className="col-md-1 mt-3" />
-      {error && <div className="alert alert-danger">{error}</div>}
+    <>
+      <div className={wrapperClass} key={counter}>
+        <input
+          data-key={counter}
+          type={question.questionTypeId == 2 ? "radio" : "checkbox"} // TODO: currently not working, state not passed to child component, no solution for now
+          name="isCorrect"
+          className="col-md-1 mt-3"
+          onChange={onChange}
+          checked={isChecked}
+        />
 
-      <div className="col-md-7 mt-3">
-        <input className="form-control" type="text" onChange={onChange} />
-        {error && <div className="alert alert-danger">{error}</div>}
+        <div className="col-md-7 mt-3" style={{ display: "inline-block" }}>
+          <TextInput
+            dataAttr={counter}
+            name="answer"
+            type="text"
+            value={value || ""}
+            onChange={onChange}
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
 AnswerInput.propTypes = {
-  questionType: PropTypes.string.isRequired,
+  question: PropTypes.object.isRequired,
+  counter: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
-  error: PropTypes.string,
+  value: PropTypes.any,
+  isChecked: PropTypes.bool.isRequired,
 };
 
 export default AnswerInput;
