@@ -9,7 +9,7 @@ import * as questionActions from "../../redux/actions/questionActions";
 
 class QuestionsPage extends React.Component {
   state = {
-    redirectToAddCoursePage: false,
+    redirectToAddTestPage: false,
   };
 
   componentDidMount() {
@@ -34,12 +34,12 @@ class QuestionsPage extends React.Component {
   render() {
     return (
       <>
-        {this.state.redirectToAddCoursePage && <Redirect to="/question" />}
+        {this.state.redirectToAddTestPage && <Redirect to="/question" />}
         <h2>Questions</h2>
         <button
           style={{ marginBottom: 20 }}
           className="btn btn-primary add-question"
-          onClick={() => this.setState({ redirectToAddCoursePage: true })}
+          onClick={() => this.setState({ redirectToAddTestPage: true })}
         >
           Add Question
         </button>

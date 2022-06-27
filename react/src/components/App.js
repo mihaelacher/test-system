@@ -7,6 +7,7 @@ import ManageQuestionPage from "./questions/ManageQuestionPage";
 import PageNotFound from "./PageNotFound";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import TestsPage from "./tests/TestsPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/questions" component={QuestionsPage} />
         <Route path="/question/:id" component={ManageQuestionPage} />
         <Route path="/question" component={ManageQuestionPage} />
+        <Route path="/tests" component={TestsPage} />
         <Route component={PageNotFound} />
       </Switch>
       <ToastContainer autoClose={3000} hideProgressBar />

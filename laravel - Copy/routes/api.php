@@ -24,4 +24,8 @@ Route::put('/question/{id}', 'Question\QuestionController@updateQuestion');
 Route::delete('/question/{id}', 'Question\QuestionController@deleteQuestion');
 Route::get('/questionType', 'Question\QuestionController@getQuestionTypes');
 
-Route::get('/questionAnswers/{id}', 'Question\QuestionController@getQuestionAnswers');
+
+Route::get('/test', 'Test\TestController@getTests');
+Route::post('/test', 'Test\TestController@saveTest');
+Route::put('/test/{id}', 'Test\TestController@updateTest');
+Route::delete('/test/{id}', 'Test\TestController@deleteTest');
