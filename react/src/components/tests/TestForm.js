@@ -68,6 +68,7 @@ TestForm.propTypes = {
   errors: PropTypes.object,
   onSave: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
+  onAddQuestion: PropTypes.func.isRequired,
 };
 
 export default TestForm;

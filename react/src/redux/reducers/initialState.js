@@ -3,4 +3,5 @@ export default {
   questionTypes: [],
   questionAnswers: [],
   tests: [],
+  users: [],
 };

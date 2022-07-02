@@ -9,6 +9,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import TestsPage from "./tests/TestsPage";
 import ManageTestPage from "./tests/ManageTestPage";
+import UsersPage from "./users/UsersPage";
+import ManageUserPage from "./users/ManageUserPage";
 
 function App() {
   return (
@@ -22,6 +24,9 @@ function App() {
         <Route path="/tests" component={TestsPage} />
         <Route path="/test/:id" component={ManageTestPage} />
         <Route path="/test" component={ManageTestPage} />
+        <Route path="/users" component={UsersPage} />
+        <Route path="/user/:id" component={ManageUserPage} />
+        <Route path="/user" component={ManageUserPage} />
         <Route component={PageNotFound} />
       </Switch>
       <ToastContainer autoClose={3000} hideProgressBar />

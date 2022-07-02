@@ -25,7 +25,7 @@ const TextInput = ({
           data-key={dataAttr}
           type={type}
           name={name}
-          className="form-control"
+          className={className ? "" : "form-control"}
           placeholder={placeholder}
           value={value}
           onChange={onChange}
@@ -42,7 +42,7 @@ TextInput.propTypes = {
   type: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.any,
   error: PropTypes.string,
   className: PropTypes.string,
   dataAttr: PropTypes.number,
