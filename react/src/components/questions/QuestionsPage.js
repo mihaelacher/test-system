@@ -45,8 +45,9 @@ class QuestionsPage extends React.Component {
         </button>
 
         <QuestionList
-          onDeleteClick={this.handleDeleteQuestion}
+          onClick={this.handleDeleteQuestion}
           questions={this.props.questions}
+          operationType="DELETE"
         />
       </>
     );

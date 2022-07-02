@@ -18,14 +18,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/question', 'Question\QuestionController@getQuestions');
-Route::post('/question', 'Question\QuestionController@saveQuestion');
-Route::put('/question/{id}', 'Question\QuestionController@updateQuestion');
-Route::delete('/question/{id}', 'Question\QuestionController@deleteQuestion');
-Route::get('/questionType', 'Question\QuestionController@getQuestionTypes');
+Route::get('/question', 'Question\ApiQuestionController@getQuestions');
+Route::post('/question', 'Question\ApiQuestionController@saveQuestion');
+Route::put('/question/{id}', 'Question\ApiQuestionController@updateQuestion');
+Route::delete('/question/{id}', 'Question\ApiQuestionController@deleteQuestion');
+Route::get('/questionType', 'Question\ApiQuestionController@getQuestionTypes');
 
 
-Route::get('/test', 'Test\TestController@getTests');
-Route::post('/test', 'Test\TestController@saveTest');
-Route::put('/test/{id}', 'Test\TestController@updateTest');
-Route::delete('/test/{id}', 'Test\TestController@deleteTest');
+Route::get('/test', 'Test\ApiTestController@getTests');
+Route::post('/test', 'Test\ApiTestController@saveTest');
+Route::put('/test/{id}', 'Test\ApiTestController@updateTest');
+Route::delete('/test/{id}', 'Test\ApiTestController@deleteTest');

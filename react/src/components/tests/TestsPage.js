@@ -14,7 +14,6 @@ class TestsPage extends React.Component {
 
   componentDidMount() {
     const { tests, actions } = this.props;
-    debugger;
     if (tests.length === 0) {
       actions.loadTests().catch((error) => {
         alert("Loading tests failed" + error);
@@ -34,14 +33,14 @@ class TestsPage extends React.Component {
   render() {
     return (
       <>
-        {this.state.redirectToAddTestPage && <Redirect to="/question" />}
+        {this.state.redirectToAddTestPage && <Redirect to="/test" />}
         <h2>Tests</h2>
         <button
           style={{ marginBottom: 20 }}
           className="btn btn-primary add-question"
           onClick={() => this.setState({ redirectToAddTestPage: true })}
         >
-          Add Question
+          Add Test
         </button>
 
         <TestList

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const QuestionList = ({ questions, onDeleteClick }) => (
+const QuestionList = ({ questions, onClick, operationType, testQuestions }) => (
   <div className="table-responsive">
     <table className="table table-striped table-hover table-bordered">
       <thead>
@@ -25,12 +25,21 @@ const QuestionList = ({ questions, onDeleteClick }) => (
               <td>{question.points}</td>
               <td>{question.questionType}</td>
               <td>
-                <button
-                  className="btn btn-outline-danger"
-                  onClick={() => onDeleteClick(question)}
-                >
-                  Delete
-                </button>
+                {operationType === "DELETE" ? (
+                  <button
+                    className="btn btn-outline-danger"
+                    onClick={() => onClick(question)}
+                  >
+                    Delete
+                  </button>
+                ) : (
+                  <input
+                    name="questionId"
+                    type="checkbox"
+                    checked={testQuestions.includes(question.id) ? true : false}
+                    onChange={() => onClick(question.id)}
+                  />
+                )}
               </td>
             </tr>
           );
@@ -42,7 +51,9 @@ const QuestionList = ({ questions, onDeleteClick }) => (
 
 QuestionList.propTypes = {
   questions: PropTypes.array.isRequired,
-  onDeleteClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
+  operationType: PropTypes.string.isRequired,
+  testQuestions: PropTypes.array,
 };
 
 export default QuestionList;
