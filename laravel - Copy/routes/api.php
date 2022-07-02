@@ -29,3 +29,9 @@ Route::get('/test', 'Test\ApiTestController@getTests');
 Route::post('/test', 'Test\ApiTestController@saveTest');
 Route::put('/test/{id}', 'Test\ApiTestController@updateTest');
 Route::delete('/test/{id}', 'Test\ApiTestController@deleteTest');
+
+
+Route::get('/user', 'User\ApiUserController@getUsers');
+Route::post('/user', 'User\ApiUserController@saveUser');
+Route::put('/user/{id}', 'User\ApiUserController@updateUser');
+Route::delete('/user/{id}', 'User\ApiUserController@deleteUser');
